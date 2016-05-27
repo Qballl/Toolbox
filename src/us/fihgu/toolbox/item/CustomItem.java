@@ -11,7 +11,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import us.fihgu.toolbox.resourcepack.Model;
 import us.fihgu.toolbox.resourcepack.ResourcePackManager;
 import us.fihgu.toolbox.data.BiDirectionalMap;
-import us.fihgu.toolbox.nbt.NBTUtils;
 
 /**
  * A custom item based on a damageable item<br>
@@ -105,9 +104,6 @@ public class CustomItem
 		item.setItemMeta(meta);
 		
 		item.setDurability(this.id);
-		
-		System.out.println(NBTUtils.getNBTTag(item).toString());
-		
 		return item;
 	}
 	
