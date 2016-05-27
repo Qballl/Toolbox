@@ -3,6 +3,8 @@ package us.fihgu.toolbox.ui.anvil;
 import java.util.List;
 
 import org.bukkit.Location;
+import org.bukkit.event.inventory.ClickType;
+import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
@@ -24,8 +26,14 @@ public abstract class AnvilCraftingMenu extends AnvilMenu
 	public void onClick(InventoryClickEvent event)
 	{
 		super.onClick(event);
+		
+		if(event.getClick() != ClickType.LEFT && event.getClickedInventory() == this.inventory)
+		{
+			event.setCancelled(true);
+			return;
+		}
 
-		int slot = event.getSlot();
+		int slot = event.getRawSlot();
 		ItemStack item = event.getCursor();
 		switch (slot)
 		{
@@ -78,7 +86,10 @@ public abstract class AnvilCraftingMenu extends AnvilMenu
 			}
 			break;
 		default:
-			event.setCancelled(false);
+			if(event.getAction() != InventoryAction.MOVE_TO_OTHER_INVENTORY && event.getAction() != InventoryAction.HOTBAR_SWAP)
+			{
+				event.setCancelled(false);
+			}
 			break;
 		}
 	}
@@ -132,6 +143,11 @@ public abstract class AnvilCraftingMenu extends AnvilMenu
 	public AnvilCraftingMenu(Location dropLocation)
 	{
 		this.dropLocation = dropLocation;
+	}
+	
+	public Location getDropLocation()
+	{
+		return this.dropLocation;
 	}
 
 	@Override

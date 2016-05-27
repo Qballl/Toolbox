@@ -182,9 +182,15 @@ public class ResourcePackManager
 					//add override entry to base model
 					Predicate predicate = new Predicate();
 					predicate.damaged = 0;
-					predicate.damage = item.getId()/CustomItemManager.MAX_ID;
+					predicate.damage = item.getId()/(item.baseItem.getMaxDurability() + 0.0);
 					overrides.add(new OverrideEntry(predicate, modelName));
 				}
+				
+				//damaged items use own texture.
+				Predicate predicate = new Predicate();
+				predicate.damaged = 1;
+				predicate.damage = 0d;
+				overrides.add(new OverrideEntry(predicate, "item/" + baseItem.getModelName()));
 				
 				//put all overrides into base model
 				baseModel.overrides = overrides.toArray(new OverrideEntry[]{});

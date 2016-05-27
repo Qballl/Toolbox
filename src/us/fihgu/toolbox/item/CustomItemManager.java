@@ -9,8 +9,6 @@ import us.fihgu.toolbox.file.FileUtils;
 
 public class CustomItemManager
 {
-	public static final double MAX_ID = 1562;
-	
 	protected static File saveFile = new File("./fihgu/toolbox/registeredItemNames.ser");
 	
 	/**
