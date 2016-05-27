@@ -12,6 +12,8 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.inventory.ItemStack;
 import us.fihgu.toolbox.item.ItemUtils;
+import us.fihgu.toolbox.ui.anvil.AnvilMenu;
+
 import org.bukkit.event.inventory.InventoryCloseEvent;
 
 
@@ -96,6 +98,7 @@ public class InventoryMenu
 	
 	public void dropItems(Location location)
 	{
+		this.inventory.setItem(AnvilMenu.SLOT_RESULT, null);
 		World world = location.getWorld();
 		for(int i = 0; i < this.inventory.getSize(); i++)
 		{
