@@ -28,8 +28,6 @@ public class Loader extends JavaPlugin
 		new MenuListener().register(this);
 		new ResourcePackListener().register(this);
 		
-		System.out.print("fihgu's Toolbox is loaded.");
-		
 		if(debug)
 		{
 			new Test().register(this);
