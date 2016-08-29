@@ -6,3 +6,4 @@ bin/**
 build.xml
 /bin/
 .externalToolBuilders/**
+/target/
