@@ -40,6 +40,9 @@ public class ResourcePackServer
 	
 	public static void stopServer()
 	{
-		server.stopServer();
+		if(server != null)
+		{
+			server.stopServer();
+		}
 	}
 }
