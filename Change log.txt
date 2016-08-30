@@ -1,3 +1,0 @@
-v1.0.7
-Added StringMeta
-Fix AnvilCraftingMenu shift click and hotbar swap.

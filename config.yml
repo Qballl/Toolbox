@@ -1,6 +1,0 @@
-http:
- localhost: 
- port: 80
- host: 
- numReadThread: 4
- numWriteThread: 4
